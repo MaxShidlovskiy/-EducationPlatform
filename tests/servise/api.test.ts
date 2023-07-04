@@ -29,6 +29,25 @@ describe('registration1', () => {
             'pwd': '1dfsdf12sdf2sfd3sfd'
         }])
     })
+    test('error', async () => {
+        const mockGetByEmail = jest.spyOn(repository, 'getByEmail');
+
+        mockGetByEmail.mockResolvedValue([{
+            id: 1,
+            'name': 'user',
+            'surname': 'surname',
+            'email': 'user@mail.com',
+            'pwd': '1dfsdf12sdf2sfd3sfd'
+        }]);
+
+        try {
+            await registration('user', 'surname', 'user@mail.com', '789456')
+        } catch (error: any) {
+            expect(mockGetByEmail).toHaveBeenCalled()
+            expect(mockGetByEmail).toHaveBeenCalledWith('user@mail.com')
+            expect(error.message).toBe('этот email уже зарегестрирован')
+        }
+    })
 })
 
 describe('registration2', () => {
@@ -86,7 +105,7 @@ describe('autorisation1', () => {
 })
 
 describe('autorisation2', () => {
-    test('success', async () => {
+    test('success1', async () => {
         const mockAuthorizationUser = jest.spyOn(repository, 'getByEmail');
         const mockBcryptFunction = jest.spyOn(bcrypt, 'compare');
 
@@ -110,4 +129,36 @@ describe('autorisation2', () => {
             pwd: '23a1sfdas32d1as'
         }])
     })
+    test('success2', async () => {
+        const testFound = jest.spyOn(repository, 'getByEmail')
+
+        testFound.mockResolvedValue([]);
+        try {
+            await authorizationUser('user@mail.com', '1dfsdf12sdf2sfd3sfd')
+        } catch (error: any) {
+            expect(error.message).toBe('юзера с таким email не существует')
+        }
+    })
+    test('success3', async () => {
+        const mockAuthorizationUser = jest.spyOn(repository, 'getByEmail')
+        const mockBcryptFunction = jest.spyOn(bcrypt, 'compare')
+
+        mockAuthorizationUser.mockResolvedValue([{
+            id: 1,
+            name: 'test',
+            surname: 'test',
+            email: 'test@mail.com',
+            pwd: '123456'
+        }])
+        mockBcryptFunction.mockResolvedValue(false)
+
+        try {
+            await authorizationUser('test@mail.com', '123456')
+        } catch (error: any) {
+            expect(mockAuthorizationUser).toHaveBeenCalled()
+            expect(error.message).toBe('пароли не совпадают')
+        }
+    })
 })
+
+describe
