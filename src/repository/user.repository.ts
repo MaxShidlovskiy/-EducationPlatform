@@ -15,11 +15,11 @@ async function getUserByIdDB(id: number): Promise <iUser[]> {
     return result;
 }
 
-async function getAllUsersDB(): Promise <iUser[]> {
+async function getAllUserDB(): Promise <iUser[]> {
     const client = await pool.connect();
     const sql = 'SELECT * FROM users';
     const result = (await client.query(sql)).rows;
     return result;
 }
 
-export { createUserDB, getAllUsersDB, getUserByIdDB };
+export { createUserDB, getAllUserDB, getUserByIdDB };
