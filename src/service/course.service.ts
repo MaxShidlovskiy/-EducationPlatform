@@ -12,4 +12,10 @@ async function getCourseById(id):Promise<iCourse[]>{
     return data
 }
 
+async function deleteCourseById(id):Promise<iCourse[]>{
+    const data = await deleteCourseByIdDB(id);
+    if(!data.length) throw new Error(`no such id`);
+    return data
+}
+
 export { getAllCourse };
