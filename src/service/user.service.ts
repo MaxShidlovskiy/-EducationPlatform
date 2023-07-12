@@ -1,8 +1,8 @@
-import { createUserDB, getAllUserDB, getUserByIdDB, updateUserDB, deleteUserDB  } from '../repository/user.repository'
+import { createUserDB, getAllUsersDB, getUserByIdDB, deleteUserByIdDB, updateUserByIdDB } from '../repository/user.repository'
 import { iUser } from '../interfaces/index';
 
-async function getAllUser(): Promise<iUser[]> {
-    const data = await getAllUserDB();
+async function getAllUsersDB(): Promise<iUser[]> {
+    const data = await getAllUsersDB();
     if (!data.length) throw new Error(`база данных пустая`)
     return data
 }
@@ -25,10 +25,10 @@ async function updateUser(id: string, name: string, surname: string, email: stri
     return data;
 }
 
-async function deleteUser(id:string): Promise<iUser[]> {
+async function deleteUser(id: string): Promise<iUser[]> {
     const data = await deleteUserDB(id);
     if (!data.length) throw new Error(`такого id нет`)
     return data;
 }
 
-export { getAllUser, getUserById, createUser, updateUser , deleteUser}
+export { getAllUsers, getUserById, createUser, updateUser, deleteUser }
