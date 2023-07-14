@@ -18,4 +18,5 @@ async function authorizationUser(email: string, pwd: string) {
     if (!isMatch) throw new Error('пароли не совпадают. Авторизация невозможна');
     return `Авторизированный пользователь ${JSON.stringify(userFound)}`;
 }
+
 export { registration, authorizationUser }
