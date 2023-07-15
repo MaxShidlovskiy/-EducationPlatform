@@ -15,4 +15,11 @@ async function getCourseByIdDB(id):Promise<iCourse[]>{
     return data;
 }
 
+async function deleteCourseByIdDB(id):Promise<iCourse[]>{
+    const client = await pool.connect();
+    const sql = `DELETE FROM courses WHERE id=$1 RETURNING *`;
+    const data = (await client.query(sql,[id])).rows;
+    return data;
+}
+
 export {getCourseDB
