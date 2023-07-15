@@ -8,4 +8,11 @@ async function getCourseDB():Promise<iCourse[]>{
     return result;
 }
 
+async function getCourseByIdDB(id):Promise<iCourse[]>{
+    const client = await pool.connect();
+    const sql = `SELECT * FROM courses WHERE id=$1`;
+    const data = (await client.query(sql,[id])).rows;
+    return data;
+}
+
 export {getCourseDB
