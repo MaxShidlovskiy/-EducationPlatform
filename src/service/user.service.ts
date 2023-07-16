@@ -1,9 +1,8 @@
 import { createUserDB, getAllUsersDB, getUserByIdDB, deleteUserByIdDB, updateUserByIdDB } from '../repository/user.repository'
 import { iUser } from '../interfaces/index';
 
-async function getAllUsersDB(): Promise<iUser[]> {
+async function getAllUsers(): Promise<iUser[]> {
     const data = await getAllUsersDB();
-    if (!data.length) throw new Error(`база данных пустая`)
     return data
 }
 
@@ -15,20 +14,21 @@ async function getUserById(id: number): Promise<iUser[]> {
 
 async function createUser(name: string, surname: string, email: string, pwd: string): Promise<iUser[]> {
     const data = await createUserDB(name, surname, email, pwd);
-    if (!data.length) throw new Error(`бд не заполнена`)
-    return data
-}
-
-async function updateUser(id: string, name: string, surname: string, email: string, pwd: string): Promise<iUser[]> {
-    const data = await updateUserDB(id, name, surname, email, pwd);
-    if (!data.length) throw new Error(`такого id нет`)
+    if (!data) throw new Error(`empty user`)
     return data;
 }
 
-async function deleteUser(id: string): Promise<iUser[]> {
-    const data = await deleteUserDB(id);
-    if (!data.length) throw new Error(`такого id нет`)
+async function updateUserById(id: number, name: string, surname: string, email: string, pwd: string): Promise<iUser[]> {
+    const data = await updateUserByIdDB(id, name, surname, email, pwd);
+    if (!data.length) throw new Error(`no such id to update`);
     return data;
 }
 
-export { getAllUsers, getUserById, createUser, updateUser, deleteUser }
+
+async function deleteUserById(id: number): Promise<iUser[]> {
+    const data = await deleteUserByIdDB(id);
+    if (!data.length) throw new Error(`no such id to delete`);
+    return data;
+}
+
+export { getAllUsers, getUserById, createUser, updateUserById, deleteUserById }
