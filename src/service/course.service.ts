@@ -1,8 +1,8 @@
-import { getAllCourseDB, getCourseByIdDB, createCourseDB, deleteCourseByIdDB } from '../repository/course.repository';
+import { getCourseDB, getCourseByIdDB, createCourseDB, deleteCourseByIdDB } from '../repository/course.repository';
 import { iCourse } from '../interfaces'
 
 async function getAllCourse() {
-    const data = await getAllCourseDB();
+    const data = await getCourseDB();
     if (!data.length) throw new Error(`база данных course пустая`)
     return data;
 }
