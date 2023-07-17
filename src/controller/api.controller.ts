@@ -9,7 +9,7 @@ api.post('/registration', async (req: Request, res: Response): Promise<void> => 
         const data = await registration(name, surname, email, pwd);
         buildResponse(res, 200, data);
     } catch (error: any) {
-        buildResponse(res, 400, error.message);
+        buildResponse(res, 404, error.message);
     }
 });
 
@@ -19,7 +19,7 @@ api.post('/auth', async (req: Request, res: Response): Promise<void> => {
         const data = await authorizationUser(email, pwd);
         buildResponse(res, 200, data);
     } catch (error: any) {
-        buildResponse(res, 400, error.message);
+        buildResponse(res, 404, error.message);
     }
 });
 
