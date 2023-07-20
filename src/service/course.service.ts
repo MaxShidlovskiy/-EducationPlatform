@@ -1,4 +1,4 @@
-import { getCourseDB, getCourseByIdDB, createCourseDB, deleteCourseByIdDB } from '../repository/course.repository';
+import { updateCourseDB, getCourseDB, getCourseByIdDB, createCourseDB, deleteCourseByIdDB } from '../repository/course.repository';
 import { iCourse } from '../interfaces'
 
 async function getAllCourse() {
@@ -7,22 +7,28 @@ async function getAllCourse() {
     return data;
 }
 
-async function getCourseById(id):Promise<iCourse[]>{
+async function getCourseById(id): Promise<iCourse[]> {
     const data = await getCourseByIdDB(id);
-    if(!data.length) throw new Error(`такого id нет`);
+    if (!data.length) throw new Error(`такого id нет`);
     return data
 }
 
-async function createCourse(course:string):Promise<iCourse[]>{
+async function createCourse(course: string): Promise<iCourse[]> {
     const data = await createCourseDB(course);
-    if(!data.length) throw new Error (`курс не сохранен`);
+    if (!data.length) throw new Error(`курс не сохранен`);
     return data;
 }
 
-async function deleteCourseById(id):Promise<iCourse[]>{
+async function updateCourse(id: number, course: string): Promise<iCourse[]> {
+    const data = await updateCourseDB(id, course);
+    if (!data.length) throw new Error(`курс не сохранен`);
+    return data;
+}
+
+async function deleteCourseById(id): Promise<iCourse[]> {
     const data = await deleteCourseByIdDB(id);
-    if(!data.length) throw new Error(`такого id нет`);
+    if (!data.length) throw new Error(`такого id нет`);
     return data
 }
 
-export { getAllCourse, getCourseById, createCourse, deleteCourseById };
+export { getAllCourse, getCourseById, createCourse, updateCourse, deleteCourseById };
