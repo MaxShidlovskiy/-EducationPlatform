@@ -1,4 +1,4 @@
-import { createUser } from '../../src/service/user.service';
+import { createUser, getAllUsers } from '../../src/service/user.service';
 import * as repository from '../../src/repository/user.repository';
 
 describe('createUser', () => {
@@ -39,3 +39,34 @@ test('error', async () => {
         expect(error.message).toBe('empty user')
     }
 })
+
+describe('getAllUsers', () => {
+    test('seccess', async () => {
+        const funcRepo = jest.spyOn(repository, 'getAllUsersDB');
+        funcRepo.mockResolvedValue(
+            [
+                {
+                    "id": 1,
+                    "name": "test",
+                    "surname": "test",
+                    "email": "test@mail.com",
+                    "pwd": "1234"
+                }
+            ]);
+
+        const result = await getAllUsers()
+
+        expect(funcRepo).toHaveBeenCalled()
+        expect(result).toEqual(
+            [
+                {
+                    "id": 1,
+                    "name": "test",
+                    "surname": "test",
+                    "email": "test@mail.com",
+                    "pwd": "1234"
+                }
+            ]);
+        expect(result.length).toBeGreaterThan(0)
+    });
+});
