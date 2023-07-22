@@ -24,6 +24,16 @@ describe(`createUserNewFunction`, () => {
         expect(result.length).toBe(1);
         expect(funcRepo).toHaveBeenCalled();
     })
+    test('success', async () => {
+        const funcRepo = jest.spyOn(repository, 'createUserDB');
+        funcRepo.mockResolvedValue([])
+        try {
+            const result = await createUser("test", "test", "test@mail.com", "1234");
+
+        } catch (error: any) {
+            expect(error.message).toBe('empty user')
+        }
+    })
 })
 
 describe('createUser', () => {
