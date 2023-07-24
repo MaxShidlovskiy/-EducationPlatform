@@ -1,8 +1,10 @@
 import { registration, authorizationUser } from '../../src/service/api.service';
 import * as repository from '../../src/repository/api.repository'
 import bcrypt from 'bcrypt'
+import { describe } from 'node:test';
+import { access } from 'node:fs';
 
-describe('registration', () => {
+describe('registration1', () => {
     test('success', async () => {
         const funcRepoGetByEmail = jest.spyOn(repository, 'getByEmail')
         const bcryptFunction = jest.spyOn(bcrypt, 'hash');
@@ -29,7 +31,7 @@ describe('registration', () => {
     })
 })
 
-describe('registration', () => {
+describe('registration2', () => {
     test('success', async () => {
         const mockGetByEmail = jest.spyOn(repository, 'getByEmail');
         const mockHash = jest.spyOn(bcrypt, 'hash');
@@ -54,5 +56,58 @@ describe('registration', () => {
             pwd: '23fg1sd3f21gadgd3f21g'
         }])
         expect(result).toHaveLength(1)
+    })
+})
+
+describe('autorisation1', () => {
+    test('success', async () => {
+        const mockAuthorizationUser = jest.spyOn(repository, 'getByEmail')
+        const mockBcryptFunction = jest.spyOn(bcrypt, 'compare');
+
+        mockAuthorizationUser.mockResolvedValue([{
+            id: 2,
+            name: 'test2',
+            surname: 'test2',
+            email: 'test2@mail.com',
+            pwd: '23fg1sd3f21gadgd3f21g'
+        }]);
+
+        mockBcryptFunction.mockResolvedValue('23fg1sd3f21gadgd3f21g');
+
+        const result = await authorizationUser('test2@mail.com', '23fg1sd3f21gadgd3f21g');
+        expect(result).toEqual([{
+            id: 2,
+            name: 'test2',
+            surname: 'test2',
+            email: 'test2@mail.com',
+            pwd: '23fg1sd3f21gadgd3f21g'
+        }])
+    })
+})
+
+describe('autorisation2', () => {
+    test('success', async () => {
+        const mockAuthorizationUser = jest.spyOn(repository, 'getByEmail');
+        const mockBcryptFunction = jest.spyOn(bcrypt, 'compare');
+
+        mockAuthorizationUser.mockResolvedValue([{
+            id: 2,
+            name: 'test2',
+            surname: 'test2',
+            email: 'test2.email.com',
+            pwd: '23a1sfdas32d1as'
+        }]);
+        mockBcryptFunction.mockResolvedValue(true)
+        const result = await authorizationUser('test2.email.com', '23a1sfdas32d1as');
+
+        expect(mockAuthorizationUser).toHaveBeenCalled()
+        expect(mockBcryptFunction).toHaveBeenCalled()
+        expect(result).toEqual([{
+            id: 2,
+            name: 'test2',
+            surname: 'test2',
+            email: 'test2.email.com',
+            pwd: '23a1sfdas32d1as'
+        }])
     })
 })
