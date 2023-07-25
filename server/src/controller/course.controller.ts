@@ -5,7 +5,7 @@ import isValidCourseBody from '../helper/validation';
 
 const course = express.Router();
 
-course.get('/', async (req: Request, res: Response) => {
+course.get('/', async (req: Request, res: Response): Promise<void> => {
     try {
         const data = await getAllCourse();
         buildResponse(res, 200, data);
@@ -24,11 +24,11 @@ course.get('/:id', async (req: Request, res: Response) => {
     }
 });
 
-course.post('/:id', async (req: Request, res: Response) => {
+course.put('/:id', async (req: Request, res: Response): Promise<void> => {
     try {
         const { id } = req.params;
         const { course } = req.body;
-        const data = await updateCourse(course, id);
+        const data = await updateCourse(id, course);
         buildResponse(res, 200, data);
     } catch (error: any) {
         buildResponse(res, 400, error.message)

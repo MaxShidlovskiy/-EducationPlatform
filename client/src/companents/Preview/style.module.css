@@ -1,0 +1,63 @@
+.preview {
+    display: flex;
+    justify-content: space-between;
+}
+
+.preview .previewInfo p {
+    color: var(--primaty-cyan-dark, #2B788B);
+    font: 700 16 Montserrat;
+}
+
+.preview .previewInfo p {
+    color: var(--primaty-cyan-dark, #757575);
+    font: 600 18 Dela Gothic One;
+}
+
+.preview .previewInfo p {
+    color: var(--primaty-cyan-dark, #757575);
+    font: 600 18 Montserrat;
+}
+
+.language {
+    display: flex;
+    justify-content: space-between;
+}
+
+.language .imgLanguage {
+    background-image: url("./assets/image\ 8.png");
+    width: 580px;
+    height: 445px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.language .information h1 {
+    color: var(--primaty-black, #000);
+    font: 400 48px Dela Gothic One;
+}
+
+.language .information p {
+    color: var(--primaty-grey-dark, #757575);
+    font: 600 18px Montserrat;
+}
+
+.language .imgSprint {
+    background-image: url(./assets/Group\ 11.png);
+    width: 172px;
+    height: 145px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.language .imgTasks {
+    background-image: url(./assets/Group\ 10.png);
+    width: 172px;
+    height: 145px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.btnImgs {
+    display: flex;
+    gap: 10px;
+}

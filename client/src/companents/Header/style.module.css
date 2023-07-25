@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper h1 {
+    color: #000;
+    font: 400 16px Dela Gothic One;
+}
+
+.wrapper .btns {
+    display: flex;
+    align-items: center;
+}
+
+.wrapper .btns .login {
+    color: #000;
+    font: 700 16px Montserrat;
+    margin-right: 25px;
+}
+
+.wrapper .btns .reg {
+    color: #fff;
+    font: 700 16px Montserrat;
+    border-radius: 14px;
+    background: #2b788b;
+}
