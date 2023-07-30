@@ -2,14 +2,21 @@ import pool from '../db';
 import { iUser } from '../interfaces';
 
 async function registrationDB(name: string, surname: string, email: string, pwd: string): Promise<iUser[]> {
+    
     const client = await pool.connect();
+    console.log('+');
+
     try {
         await client.query('BEGIN');
         const sql = `INSERT INTO users (name, surname, email, pwd) VALUES ($1, $2, $3, $4) RETURNING *`;
+        console.log(name, surname, email, pwd);
+        
         const result = (await client.query(sql, [name, surname, email, pwd])).rows;
         await client.query('COMMIT');
         return result;
     } catch (error) {
+        console.log(error);
+        
         await client.query("ROLLBACK");
         return [];
     }
