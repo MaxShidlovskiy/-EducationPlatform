@@ -4,8 +4,10 @@ import style from './style.module.css'
 import Input from '../../companents/Input/Input';
 import { useState } from 'react';
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 function RegPage() {
+  const navigate = useNavigate()
   const [value, setValue] = useState({ name: '', surname: '', email: '', pwd: '' })
 
   const arr = ['name', 'surname', 'email', 'pwd']
@@ -14,6 +16,7 @@ function RegPage() {
     debugger
     const result = await axios.post('http://localhost:3001/api/registration', value)
     console.log(result);
+    navigate('/student')
   }
 
   return (
