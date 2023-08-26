@@ -1,0 +1,62 @@
+.wrapper {
+    margin: 2% auto;
+    width: 1220px;
+}
+
+.wrapper .options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper .options div {
+    display: flex;
+    gap: 20px;
+}
+
+.wrapper .options div p {
+    color: var(--primaty-grey-dark, #757575);
+    font: 600 14px Montserrat;
+}
+
+.wrapper .line {
+    background-color: #E0E0E0;
+    height: 2px;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.icons {
+    display: flex;
+    gap: 20px;
+}
+
+.icons .icon1 {
+    background-image: url(./assets/Frame\ 30.svg);
+    width: 30px;
+    height: 24px;
+}
+
+.icons .icon2 {
+    background-image: url(./assets/Frame\ 33.svg);
+    width: 30px;
+    height: 24px;
+
+}
+
+.icons .icon3 {
+    background-image: url(./assets/Frame\ 31.svg);
+    width: 30px;
+    height: 24px;
+
+}
+
+.network {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.network p {
+    color: #757575;
+    font: 600 12px Montserrat;
+}
