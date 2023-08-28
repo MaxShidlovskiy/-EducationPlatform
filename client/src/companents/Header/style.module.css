@@ -1,4 +1,6 @@
 .wrapper {
+    margin: auto;
+    width: 1220px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,13 +16,13 @@
     align-items: center;
 }
 
-.wrapper .btns .login {
+.wrapper .loginBtn {
     color: #000;
     font: 700 16px Montserrat;
     margin-right: 25px;
 }
 
-.wrapper .btns .reg {
+.wrapper .regBtn{
     color: #fff;
     font: 700 16px Montserrat;
     border-radius: 14px;
