@@ -1,24 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .preview {
     display: flex;
-    justify-content: space-between;
-}
+    padding-top: 118px;
+    margin: auto;
+    width: 1220px;
+    margin: 6% auto;
+  }
 
-.preview .previewInfo p {
-    color: var(--primaty-cyan-dark, #2B788B);
-    font: 700 16 Montserrat;
-}
+  .info .ecourse {
+    color: #2b788b;
+    font: 700 16px "Montserrat";
+  }
 
-.preview .previewInfo p {
-    color: var(--primaty-cyan-dark, #757575);
-    font: 600 18 Dela Gothic One;
-}
+  .info .text {
+    margin-top: 30px;
+    color: #757575;
+    font: 600 16px "Montserrat";
+  }
+  .btnAbout {
+    margin-top: 32px;
+    color: #2b788b;
+    display: inline-block;
+    padding: 14px 22px;
+    border-radius: 100px;
+    background-color: #c3dce3;
+    font: 700 16px "Montserrat";
+  }
+  .btnAbout:hover {
+    cursor: pointer;
+  }
+  .image {
+    width: 933px;
+    height: 601px;
+    background-image: url(./assets/Frame\ 24.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .statistic {
+    margin-top: 48px;
+  }
+  .statistic div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font: 400 40px "Dela Gothic One";
+  }
+  .statistic div .thunder {
+    width: 24px;
+    height: 30px;
+    background: url("./assets/Frame\ 35271.svg") no-repeat;
+  }
+  .statistic div span {
+    color: #2b788b;
+  }
+  .statistic p {
+    color: #585858;
+    font: 600 16px "Montserrat";
+  }
+.wrapperBCG {
 
-.preview .previewInfo p {
-    color: var(--primaty-cyan-dark, #757575);
-    font: 600 18 Montserrat;
+    background-color: white;
 }
 
 .language {
+    margin: auto;
+    padding: 6% 0;
+    width: 1220px;
     display: flex;
     justify-content: space-between;
 }
@@ -31,6 +83,14 @@
     background-size: contain;
 }
 
+.language .information {
+    width: 490px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
 .language .information h1 {
     color: var(--primaty-black, #000);
     font: 400 48px Dela Gothic One;
@@ -39,6 +99,11 @@
 .language .information p {
     color: var(--primaty-grey-dark, #757575);
     font: 600 18px Montserrat;
+}
+
+.btnImgs {
+    display: flex;
+    gap: 10px;
 }
 
 .language .imgSprint {
@@ -57,7 +122,88 @@
     background-size: contain;
 }
 
-.btnImgs {
+.knowledge {
+    width: 1220px;
+    margin: 6% auto;
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.knowledgeText {
+    width: 475px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.knowledgeText h1 {
+    color: var(--primaty-black, #000);
+    font: 400 48px Dela Gothic One;
+    line-height: 100%
+
+}
+
+.knowledgeText p {
+    color: var(--primaty-grey-dark, #757575);
+    font: 600 18px Montserrat;
+}
+
+.knowledgeText .buttonKNLG {
+    width: 131px;
+    padding: 14px 0px;
+    text-align: center;
+    border-radius: 100px;
+    background: var(--primaty-cyan-light, #C3DCE3);
+
+    color: #2B788B;
+    font: 700 16px Montserrat;
+}
+
+.knowledgeImg {
+    background-image: url(./assets/image\ 2.png);
+    width: 580px;
+    height: 474px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.progress {
+  display: flex;
+  justify-content: space-between;
+  width: 1220px;
+  padding: 7% 0;
+  margin: 6% auto; /* ? */
+}
+.progressImg {
+  background: url("./assets/image\ 1.png") no-repeat;
+  background-size: contain;
+  width: 680px;
+  height: 409px;
+}
+.progressText {
+  display: flex;
+  width: 470px;
+
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 20px;
+}
+.progressText h1 {
+  font: 400 48px "Dela Gothic One";
+}
+.progressText p {
+  color: #757573;
+  font: 600 18px "Montserrat";
+}
+.progress .buttonPRG {
+  width: 131px;
+  text-align: center;
+  border-radius: 100px;
+  background-color: #c3dce3;
+  color: #2b788b;
+  font: 600 16px "Montserrat";
+  padding: 14px 0;
+}
+.progress .buttonPRG:hover {
+  cursor: pointer;
 }
