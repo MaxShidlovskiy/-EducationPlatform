@@ -1,0 +1,49 @@
+.login {
+    display: flex;
+    width: 1220px;
+    margin: 6% auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loginInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.loginInfo h1 {
+    width: 519px;
+    height: 71px;
+    color: var(--primaty-black, #000);
+    font: 400 56px Dela Gothic One;
+}
+
+.loginInfo div input {
+background-color: #F6F5F4;
+    border-radius: 2px;
+    border: 1px solid var(--gray-gray-4, #CED4DA);
+    height: 60px;
+    width: 519px;
+    padding: 0px 12px;
+}
+
+.loginInfo .loginBtn {
+    font-family: Montserrat;
+    font-weight: 700;
+    width: 110px;
+    padding: 14px 22px;
+    align-items: flex-start;
+    border-radius: 100px;
+    background: var(--primaty-cyan-dark, #2B788B);
+    text-align: center;
+    color: #FFF;
+}
+
+.login .loginImg {
+    background-image: url(./assets/image\ 33\ \(1\).png);
+    width: 481px;
+    height: 320px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

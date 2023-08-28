@@ -1,0 +1,45 @@
+.wrapper {
+    display: flex;
+    width: 1220px;
+    margin: 6% auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper h1 {
+    color: black;
+    font: 400 56px Dela Gothic One;
+}
+
+.wrapper .signUpInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wrapper .signUpInfo div input {
+    border-radius: 2px;
+    border: 1px solid var(--gray-gray-4, #CED4DA);
+    height: 60px;
+    padding: 6px 0px;
+    width: 519px;
+    background-color: #F6F5F4;
+}
+
+.wrapper .signUpImg {
+    background-image: url(./assets/image\ 33.png);
+    width: 481px;
+    height: 320px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.wrapper .wrapperBtn {
+    font-family: Montserrat;
+    border-radius: 100px;
+    background: var(--primaty-cyan-dark, #2B788B);
+    width: 110px;
+    padding: 14px 22px;
+    text-align: center;
+    color: #fff;
+}
