@@ -33,7 +33,6 @@ test("UPDATE", async () => {
 
 test("DELETE", async () => {
     const res = await request(app).delete(`/course/${id}`);
-    console.log(res.body);
 
     expect(res.status).toBe(200);
     expect(res.body.length).toBeGreaterThanOrEqual(1);
