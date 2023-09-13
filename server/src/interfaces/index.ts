@@ -5,9 +5,16 @@ interface iUser {
     email: string;
     pwd: string;
 }
+
 interface iCourse {
     id: number;
-    course: string;
+    title: string;
 }
 
-export { iUser, iCourse }
+interface iLessons {
+    id: string;
+    title: string;
+    course_id: string;
+}
+
+export { iUser, iCourse, iLessons }
