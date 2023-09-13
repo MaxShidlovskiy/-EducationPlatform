@@ -1,4 +1,5 @@
 import style from './style.module.css'
+import {Link} from 'react-router-dom'
 
 function Preview() {
     return (
@@ -10,7 +11,9 @@ function Preview() {
           <p className={style.text}>
             Any subject, in any language, on any device, for all ages!
           </p>
+          <Link to = {"/*"}>
           <div className={style.btnAbout}>About platform</div>
+          </Link>
           <div className={style.statistic}>
             <div>
               <div className={style.thunder}></div>
@@ -40,7 +43,9 @@ function Preview() {
                 <div className={style.knowledgeText}>
                     <h1>Increase your knowledge</h1>
                     <p>Traditional and new effective approaches to learning languages</p>
+                    <Link to = {"/*"}>
                     <div className={style.buttonKNLG}>Textbook →</div>
+                    </Link>
                 </div>
                 <div className={style.knowledgeImg}></div>
             </div>
@@ -49,7 +54,9 @@ function Preview() {
                 <div className={style.progressText}>
                     <h1>Watch your progress every day</h1>
                     <p>Save statistics on your achievements and mistakes</p>
+                   <Link to = {"/*"}>
                     <div className={style.buttonPRG}>Statistics →</div>
+                   </Link>
                 </div>
             </div>
         </div>
