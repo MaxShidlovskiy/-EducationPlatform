@@ -7,7 +7,6 @@ async function registration(name: string, surname: string, email: string, pwd: s
     // const data = await getByEmail(email);
     // if (data.length) throw new Error(`этот email уже зарегестрирован`);
     const pwd_hashed = await bcrypt.hash(pwd, salt);
-    console.log(pwd_hashed);
     
     const result = await registrationDB(name, surname, email, pwd_hashed);
     return result;
