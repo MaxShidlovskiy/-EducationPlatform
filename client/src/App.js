@@ -5,6 +5,7 @@ import RegPage from './Pages/RegPage/RegPage';
 import AuthPage from './Pages/AuthPage/AuthPage';
 import StudentPage from './Pages/StudentPage/StudentPage';
 import CoursePage from './Pages/CoursePage/CoursePage';
+import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route path='/auth' element={<AuthPage />}></Route>
       <Route path='/student' element={<StudentPage />}></Route>
       <Route path='/course/:id' element={<CoursePage />}></Route>
+      <Route path='/*' element={<NotFoundPage />}></Route>
     </Routes>
 
   );
