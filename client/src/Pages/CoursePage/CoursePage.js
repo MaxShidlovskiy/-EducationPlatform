@@ -1,18 +1,23 @@
 import { useParams } from "react-router-dom"
-import { useEffect, useState } from "react";
-import array from "../../Storage/course.json"
-import Header from "../../companents/Header/Header"
+import { useMemo, useState } from "react";
+import Header from "../../companents/Header/Header";
 import Footer from "../../companents/Footer/Footer";
 import style from './style.module.css';
-
+import axios from "axios";
 
 export default function CoursePage() {
     const { id } = useParams()
+    const [data, setData] = useState([])
     const [value, setValue] = useState({})
-    useEffect(() => {
-        const currentEl = array.filter((el) => el.id === id)
-        setValue(currentEl[0])
+    useMemo(async () => {
+        const courseData = await axios.get(`http://localhost:5000/course/${id}`)
+        console.log(courseData.data);
+        setValue(courseData.data[0])
+
+        const lessonData = await axios.get(`http://localhost:5000/lesson/${id}`)
+        setData(lessonData.data)
     }, [id])
+
 
     return (
         <>
@@ -22,14 +27,19 @@ export default function CoursePage() {
                     <div className={style.flex}>
                         <div className={style.img}></div>
                         <div className={style.informationCourse}>
-                            <h2>{value.name}</h2>
-                            <p>{value.text}</p>
+                            <h2>{value.course}</h2>
+                            <p>{value.description}</p>
                         </div>
                     </div>
                     <div className={style.btn}>Go to Course</div>
                 </div>
 
-                <div className={style.lessons}></div>
+                <div className={style.lessons}>
+                    <h2>15 lessons</h2>
+                    <div className={style.txtContent}>{data.map((el) => {
+                        return <p>{el.title}</p>
+                    })}</div>
+                </div>
             </div>
             <Footer />
         </>
