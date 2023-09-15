@@ -2,11 +2,22 @@ import Header from "../../companents/Header/Header"
 import Footer from '../../companents/Footer/Footer'
 import style from './style.module.css';
 import { Link } from 'react-router-dom';
-import array from '../../Storage/course.json'
+// import array from '../../Storage/course.json'
+import { useState, useEffect } from "react";
+import axios from 'axios';
 
+function StudentPage() {
 
-export default function StudentPage() {
+    const [elements, setElements] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
 
+    useEffect(() => sendData(), [currentPage]);
+
+    async function sendData() {
+        const data = await axios.get("http://localhost:5000/course/")
+        console.log(data.data);
+        setElements(data.data)
+    }
 
     return (
         <>
@@ -17,21 +28,19 @@ export default function StudentPage() {
                 </div>
                 <div className={style.list}>
                     {
-                        array.map((el) => (
+                        elements.map((el) => (
                             <Link to={`/course/ ${el.id}`}>
                                 <div className={style.courseContainer}>
                                     <div className={style.imageCourse1}></div>
                                     <div className={style.informationCourse}>
-                                        <h2>{el.name}</h2>
-                                        <p>{el.text}</p>
+                                        <h2>{el.course}</h2>
+                                        <p>{el.description}</p>
                                     </div>
                                 </div>
                             </Link>
-                        )
-                        )
+                        ))
                     }
                 </div>
-                <h1></h1>
             </div>
             <Footer />
 
@@ -40,3 +49,5 @@ export default function StudentPage() {
 
     )
 }
+
+export default StudentPage
