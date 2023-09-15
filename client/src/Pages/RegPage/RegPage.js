@@ -14,7 +14,7 @@ function RegPage() {
 
   async function show() {
     debugger
-    const result = await axios.post('http://localhost:3001/api/registration', value)
+    const result = await axios.post('http://localhost:5000/api/registration', value)
     console.log(result);
     navigate('/student')
   }
