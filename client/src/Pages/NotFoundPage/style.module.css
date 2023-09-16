@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1220px;
+    margin: auto;
+}
+
+.ghost {
+    background-image: url('../NotFoundPage/assets/ghost-img\ 1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 394px;
+    height: 413px;
+}
+
+p {
+    color: #757575;
+    font: 500px 20px "Space Grotesk";
+}
+
+.goHome{
+    background-color: #2b788b ;
+    padding: 13px 0px;
+    color: #FFF;
+    margin-top: 118px;
+    text-align: center;
+    width: 118px;
+    border-radius: 100px;
+    font: 700px 16px "Montserrat";
+}
