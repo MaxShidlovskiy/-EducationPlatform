@@ -6,7 +6,6 @@ const api = express.Router();
 api.post('/registration', async (req: Request, res: Response): Promise<void> => {
     try {
         const { name, surname, email, pwd } = req.body;
-        console.log(name, surname, email, pwd);
 
         const data = await registration(name, surname, email, pwd);
         buildResponse(res, 200, data);
